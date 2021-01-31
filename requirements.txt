@@ -1,0 +1,5 @@
+wheel
+mkdocs
+mkdocs-awesome-pages-plugin
+mkdocs-material-extensions
+mkdocs-git-revision-date-plugin
