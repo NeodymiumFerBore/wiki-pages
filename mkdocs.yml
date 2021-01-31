@@ -1,0 +1,32 @@
+site_name: NdFeB Wiki
+docs_dir: docs
+site_url: https://ndfeb.fr/wiki
+theme:
+  name: material
+  #custom_dir: docs/theme
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: ingido
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky # Insiders only, but maybe one day...
+extra:
+  social:
+    - icon: fontawesome/brands/gitlab
+      link: https://gitlab.com/users/NdFeB/projects
+    - icon: fontawesome/brands/github
+      link: https://github.com/NeodymiumFerBore
+
+plugins:
+  - search
+  - awesome-pages
+
+# https://squidfunk.github.io/mkdocs-material/reference/admonitions/
+markdown_extensions:
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - admonition              # Block "note" blocks
+  - pymdownx.details        # For spoiler blocks, integrates with admonition
+
+# Use awesome-pages for nav, and define .pages in subfolders

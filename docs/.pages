@@ -1,0 +1,6 @@
+nav:
+  - Home: index.md
+  - About: about.md
+  - Linux
+  - Virtualization
+  - InfoSec
