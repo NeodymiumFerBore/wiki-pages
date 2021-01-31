@@ -6,6 +6,9 @@
     At the moment, this article is just a trash dump of my notes during the setup.
     Please, do not refer to it for now.
 
+!!! warning "Disclaimer"
+    Many game editors' TOS forbid to run their game in a VM. I haven't faced the problem personally, but anti-cheat systems may flag that your game is running in a VM. This may result in a permanent ban of your account. I decline any responsibility if it happens to you. Run games in a VM at your own risk.
+
 ---
 
 ## History
@@ -210,7 +213,7 @@ root@mint# usermod -aG libvirt-qemu ndfeb
     (...)
     ```
 
-With this conf, keyboard and mouse can be switched from host to guest with CTRL_L + CTRL_R
+With this conf, keyboard and mouse can be switched from host to guest with ++lctrl+rctrl++
 
 ---
 
