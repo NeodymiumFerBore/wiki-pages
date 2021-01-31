@@ -203,7 +203,7 @@ Metasploit-Framework installation for development - WIP
 
 -----
 
-# IRB setup for Metasploit-Framework
+## IRB setup for Metasploit-Framework
 
 Once installed we need to allow Metasploit Framework to load them since they are not in the Gemset of the project and we can not add them to the Gemset file since msfupdate will replace the file. To allow this in the project folder we need to create a Gemfile.local file loading the current project gems and our additional gems.
 
@@ -214,64 +214,62 @@ With this setup:
 - parse code with the `code` module, like `Code.for framework.db, :report_cred`
 - use the function `local_methods` instead of `methods` to show local methods only, excluding instance methods
 
-++++ /opt/metasploit-framework/Gemfile.local|
-```ruby Gemfile.local
-# Include the Gemfile included with the framework. This is very
-# important for picking up new gem dependencies.
-msf_gemfile = File.join(File.dirname(__FILE__), 'Gemfile')
-if File.readable?(msf_gemfile)
-  instance_eval(File.read(msf_gemfile))
-end
+??? note "`/opt/metasploit-framework/Gemfile.local`"
+    ```ruby
+    # Include the Gemfile included with the framework. This is very
+    # important for picking up new gem dependencies.
+    msf_gemfile = File.join(File.dirname(__FILE__), 'Gemfile')
+    if File.readable?(msf_gemfile)
+    instance_eval(File.read(msf_gemfile))
+    end
 
-# Create a custom group
-group :local do
-  gem 'wirble'
-  gem 'awesome_print'
-  gem 'code'
-  gem 'core_docs'
-end
-```
-++++
+    # Create a custom group
+    group :local do
+    gem 'wirble'
+    gem 'awesome_print'
+    gem 'code'
+    gem 'core_docs'
+    end
+    ```
 
-++++ ~/.irbrc|
-```ruby .irbrc
-# Print message to show that irbrc loaded.
-puts '~/.irbrc has been loaded.'
+??? note "`~/.irbrc`"
+    ```ruby
+    # Print message to show that irbrc loaded.
+    puts '~/.irbrc has been loaded.'
 
-# Load wirb to colorize the console
-require 'wirble'
-Wirble.init
-Wirble.colorize
+    # Load wirb to colorize the console
+    require 'wirble'
+    Wirble.init
+    Wirble.colorize
 
-# Load awesome_print.
-require 'ap'
+    # Load awesome_print.
+    require 'ap'
 
-# Load the Code gem 
-require 'code'
+    # Load the Code gem 
+    require 'code'
 
 
-# Remove the annoying irb(main):001:0 and replace with >>
-IRB.conf[:PROMPT_MODE]  = :SIMPLE
+    # Remove the annoying irb(main):001:0 and replace with >>
+    IRB.conf[:PROMPT_MODE]  = :SIMPLE
 
-# Tab Completion
-require 'irb/completion'
+    # Tab Completion
+    require 'irb/completion'
 
-# Automatic Indentation
-IRB.conf[:AUTO_INDENT]=true
+    # Automatic Indentation
+    IRB.conf[:AUTO_INDENT]=true
 
-# Save History between irb sessions
-require 'irb/ext/save-history'
-IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+    # Save History between irb sessions
+    require 'irb/ext/save-history'
+    IRB.conf[:SAVE_HISTORY] = 100
+    IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
-# get all the methods for an object that aren't basic methods from Object
-class Object
-  def local_methods
-    return (methods - Object.instance_methods)
-  end
-end
-```
-++++
+    # get all the methods for an object that aren't basic methods from Object
+    class Object
+    def local_methods
+        return (methods - Object.instance_methods)
+    end
+    end
+    ```
 
 After those files were created, install the Gemfile.local in the metasploit project (as stated [here](https://gist.github.com/kn0/11129288), it needs to be installed manually, and probably again after each update)
 
@@ -284,4 +282,3 @@ After those files were created, install the Gemfile.local in the metasploit proj
 [Metasploit IRB setup](https://www.darkoperator.com/blog/2017/10/21/basics-of-the-metasploit-framework-irb-setup)
 
 -----
-
