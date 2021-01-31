@@ -3,7 +3,7 @@
 ## Redefining tabs to 4 spaces (keystroke + conversion)
 
 > /etc/vim/vimrc.local
-```conf vimrc.local
+```conf
 set tabstop=4
 set softtabstop=0
 set expandtab
@@ -13,10 +13,9 @@ set mouse=
 set ttymouse=
 ```
 
-
 ---
 
-```conf --NONAME--
+```conf
 tabstop
     The width of a hard tabstop measured in "spaces" -- effectively the (maximum) width of an actual tab character.
 

@@ -1,5 +1,7 @@
 # Difference between RUID and EUID
 
+## What's the difference?
+
 RUID is the *Real User ID* and it never (almost) changes. If `user1` logs in to the system, the shell is then launched with its real ID set to `user1`. All processes they start from the shell will inherit the real ID `user1` as their real ID.
 
 EUID is the *Effective User ID*. When a user executes a file that have the *setuid* bit set, the EUID changes for the created process.
@@ -19,11 +21,11 @@ Let's use the case of `passwd`:
 
 ---
 
-# Example for spawning child process as EUID
+## Example for spawning child process as EUID
 
 Considering the following executable `reuid-poc` with setuid bit, in a session authenticated as `user1` with UID `1000`:
 
-```console --NONAME--
+```console
 user1@host:/tmp$ id -u user1
 1000
 user1@host:/tmp$ id -u root
@@ -39,53 +41,51 @@ However, a child process will be spawned as `1000`. The EUID of a child process 
 
 Here is the content of `reuid-poc.c`:
 
-++++ Click to reveal reuid-poc.c|
+??? abstract "Click to reveal reuid-poc.c"
 
-```c reuid-poc.c
-#include <stdio.h>
-#include <stdlib.h> // for system()
-#include <unistd.h> // for setuid(), getuid(), uid_t
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h> // for system()
+    #include <unistd.h> // for setuid(), getuid(), uid_t
 
-/*
-gcc -o reuid-poc reuid-poc.c
-*/
+    /*
+    gcc -o reuid-poc reuid-poc.c
+    */
 
-int main(int argc, char **argv)
-{
-    char child[]="sh -c /usr/bin/whoami";
+    int main(int argc, char **argv)
+    {
+        char child[]="sh -c /usr/bin/whoami";
 
-    printf("RUID: %d\n",   getuid()); // getuid() returns RUID (RUID == UID)
-    printf("EUID: %d\n\n", geteuid());
+        printf("RUID: %d\n",   getuid()); // getuid() returns RUID (RUID == UID)
+        printf("EUID: %d\n\n", geteuid());
 
-    printf("whoami: ");
-    fflush(stdout);
-    system(child);
+        printf("whoami: ");
+        fflush(stdout);
+        system(child);
 
-    printf("--------------------------------------\n");
+        printf("--------------------------------------\n");
 
-    if (setuid(0) == 0)
-        printf("setuid success\n");
-    else
-        printf("setuid failed\n");
+        if (setuid(0) == 0)
+            printf("setuid success\n");
+        else
+            printf("setuid failed\n");
 
-    printf("--------------------------------------\n");
+        printf("--------------------------------------\n");
 
-    printf("RUID: %d\n",   getuid());
-    printf("EUID: %d\n\n", geteuid());
+        printf("RUID: %d\n",   getuid());
+        printf("EUID: %d\n\n", geteuid());
 
-    printf("whoami: ");
-    fflush(stdout);
-    system(child);
+        printf("whoami: ");
+        fflush(stdout);
+        system(child);
 
-    return 0;
-}
-```
-
-++++
+        return 0;
+    }
+    ```
 
 Now we compile our code as root, set the setuid bit permission and allow execution for all users:
 
-```console --NONAME--
+```console
 root@host:/tmp# gcc -o reuid-poc reuid-poc.c
 root@host:/tmp# chown 0:0 reuid-poc
 root@host:/tmp# chmod 4755 reuid-poc
@@ -93,7 +93,7 @@ root@host:/tmp# chmod 4755 reuid-poc
 
 When we go back to our user `user1`, we execute this program:
 
-```console --NONAME--
+```console
 user1@host:/tmp$ ./reuid-poc
 RUID: 1000
 EUID: 0
@@ -116,7 +116,7 @@ Same mechanism exists for GID (RGID and EGID in the context of setgid bit permis
 
 ---
 
-# Sources
+## Sources
 
 - [Difference between owner/root and ruid/euid](https://unix.stackexchange.com/questions/191940/difference-between-owner-root-and-ruid-euid)
 - [manpage of setreuid](http://manpagesfr.free.fr/man/man2/setreuid.2.html)
