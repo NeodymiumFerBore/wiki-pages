@@ -9,13 +9,14 @@ Please, do not refer to it for now.
 
 ---
 
-## Date
+## History
 
-|Post date|14th June 2020|
-|Last update|14th June 2020|
+| Action | Date |
+| ------ | ---- |
+|Post date|2020, June 14th|
+|Last update|2020, June 14th|
 
------
-
+---
 
 ## Content
 
@@ -30,7 +31,7 @@ Please, do not refer to it for now.
     - RAM optimization
 - Sources (links, credit)
 
------
+---
 
 ## Plan
 
@@ -61,7 +62,7 @@ When everything will be technically ready, we will run into some benchmarks and 
 - Normal Windows 10 setup (not virtualized)
 - Our QEMU/KVM Windows 10
 
------
+---
 
 ## Prerequisites
 
@@ -71,29 +72,30 @@ This list is not exhaustive! This is what I had when I did this, and I'm far fro
 
 I was able to test this setup using two different configs. First was involving an Intel CPU integrated graphic chipset and an Nvidia GTX 970. Second was involving the GTX 970 and another Nvidia 1050 Ti. I will show the config for both scenario, and the same logic can be applied for AMD hardware (I have not tested this, just refer to the sources at the bottom of this article).
 
-#### Software
+### Software
 
+| Component | Version |
 |Disto|Linux Mint 19.3|
 |Kernel|5.0.0-32|
 |QEMU version|2.11.1|
 
-#### Hardware
+### Hardware
 
 - CPU: Intel i5 4690K (4 core 4 threads @3.9GHz) (support for both Intel VT-x and VT-d)
 - Motherboard: MSI Z97 Gaming 5 (UEFI) (support for both Intel VT-x and VT-d)
 - RAM: 16 GB DDR3
 
-##### GPU Scenario 1
+#### GPU Scenario 1
 
 - GPU1: Intel HD Graphics
 - GPU2: Nvidia GTX 970
 
-##### GPU Scenario 2
+#### GPU Scenario 2
 
 - GPU1: Nvidia GTX970
 - GPU2: Nvidia GTX 1050 Ti
 
-----
+---
 
 ## Setup
 
@@ -101,7 +103,7 @@ From here, I consider that you already have a Linux Mint 19.3 installed in EFI m
 
 - Update your distro and upgrade if needed
 
-```bash --NONAME--
+```console
 root@mint# apt-get update
 root@mint# apt-get dist-upgrade -y
 ```
@@ -109,26 +111,26 @@ root@mint# apt-get dist-upgrade -y
 - Reboot, go into your BIOS and ensure that VT-x and VT-d are enabled (AMD-V and AMD-Vi for AMD CPU)
 - Back to your host, check that your kernel was able to load virtualization modules and if your CPU is ready to act as an hypervisor
 
-```bash --NONAME--
+```console
 root@mint# grep -e 'svm\|vmx' /proc/cpuinfo
 ```
 
 - Install packages
 
-```bash --NONAME--
+```bash
 root@mint# apt-get install qemu-kvm qemu-utils libvirt-bin bridge-utils virt-manager ovmf \
                                                seabios hugepages cpu-checker dnsmasq ebtables gir1.2-spiceclientgtk-3.0
 ```
 
 - Add your user to the libvirtd group
 
-```bash --NONAME--
+```bash
 root@mint# usermod -aG your_user libvirtd
 ```
 
 - Test if your system is ready for virtualization
 
-```bash --NONAME--
+```bash
 root@mint# virsh -c qemu:///system list
 ```
 
@@ -139,15 +141,15 @@ Good, we are ready for next step!
 
 ### Mouse/kbd hooks, controler passthrough
 
-```bash --NONAME--
+```bash
 root@mint# usermod -aG input ndfeb
 root@mint# usermod -aG kvm ndfeb
 root@mint# usermod -aG libvirt ndfeb
 root@mint# usermod -aG libvirt-qemu ndfeb
 ```
 
-/etc/libvirt/qemu/win10.xml
-```
+> /etc/libvirt/qemu/win10.xml
+```conf
 (...)
     <input type='mouse' bus='virtio'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x0e' function='0x0'/>
@@ -179,8 +181,8 @@ root@mint# usermod -aG libvirt-qemu ndfeb
 
 ---
 
-/etc/libvirt/qemu.conf
-```
+>/etc/libvirt/qemu.conf
+```conf
 user = "ndfeb"
 group = "kvm"
 (...)
@@ -203,13 +205,13 @@ cgroup_device_acl = [
 
 With this conf, keyboard and mouse can be switched from host to guest with CTRL_L + CTRL_R
 
------
+---
 
-#### Permission denied errors
+### Permission denied errors
 
 If you get permission deny errors concerning audio sockets when you try to start your VM, you probably face a problem with SElinux or AppArmor. For AppArmor, add `/dev/input/* rw` to the file `/etc/apparmor.d/abstractions/libvirt-qemu` and restart apparmor:
 
-```bash --NONAME--
+```bash
 root@mint# cat /etc/apparmor.d/abstractions/libvirt-qemu
 (...)
   /dev/input/* rw,
@@ -232,12 +234,11 @@ In case of SELinux, you can refer to [this document](https://access.redhat.com/d
 
 ---
 
-
 ### Sound passthrough
 
 `01_old_qemu_conf_sound.txt` (`/mnt/etc/libvirt/qemu/win10.xml`)
 
-```xml --NONAME--
+```xml
   <qemu:commandline>
     <qemu:arg value='-cpu'/>
     <qemu:arg value='host,hv_time,kvm=off,hv_vendor_id=null'/>
@@ -264,7 +265,8 @@ to be continued...
 
 ### RAM optimization
 
------
+---
+
 ## Sources (links, credit)
 
 - [GPU passthrough](https://davidyat.es/2016/09/08/gpu-passthrough/)
@@ -282,9 +284,8 @@ to be continued...
 - [[PDF] About KVM](http://www.linux-kvm.org/images/2/24/01x02-Rik_van_Riel-KVM_realtime.pdf)
 
 ---
----
 
-Bookmarks used for setup:
+## Bookmarks used for setup:
 
 - https://gitlab.com/NdFeB/cool-bash-aliases-and-bashrc
 - https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces

@@ -34,8 +34,8 @@ Note that the `SMB2` and `SMB3` keywords map to the highest supported sub-versio
 
 === "client min/max protocol"
 
-  - `client min protocol`: This setting controls the minimum protocol version that the client will attempt to use.
-  - `client max protocol`: The value of the parameter (a string) is the highest protocol level that will be supported by the client.
+    - `client min protocol`: minimum protocol version that the client will attempt to use.
+    - `client max protocol`: highest protocol version that will be supported by the client.
 
 === "SMB2"
 
