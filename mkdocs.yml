@@ -5,6 +5,7 @@ repo_url: https://github.com/NeodymiumFerBore/wiki-pages
 edit_uri: edit/master/docs/
 theme:
   name: material
+  font: false # disable loading fonts from google for data privacy reason
   icon:
     repo: fontawesome/brands/github-alt
   palette:
@@ -24,6 +25,9 @@ extra:
   # Define where assets are stored. {{ assets.path }} will then be used
   assets:
     path: https://ndfeb.fr/wiki/assets
+
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
   - search
