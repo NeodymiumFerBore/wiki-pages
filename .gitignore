@@ -1,3 +1,4 @@
 # Ignore binary ressources (pdf, images, etc.)
 assets/
 img/
+site/
