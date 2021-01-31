@@ -3,7 +3,7 @@
   src: "...";
 }
 body, input {
-  font-family: "<font>", -apple-system, Helvetica, Arial, sans-serif;
+  font-family: "<font>", -apple-system, BlinkMacSystemFont, "Open Sans", Helvetica, Arial, sans-serif;
 }
 pre, code, kbd {
   font-family: "<font>", SFMono-Regular, Consolas, Menlo, monospace;
