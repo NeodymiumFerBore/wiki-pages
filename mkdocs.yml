@@ -32,5 +32,6 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition              # Block "note" blocks
   - pymdownx.details        # For spoiler blocks, integrates with admonition
+  - pymdownx.keys           # For key images with ++ctrl+c++
 
 # Use awesome-pages for nav, and define .pages in subfolders
