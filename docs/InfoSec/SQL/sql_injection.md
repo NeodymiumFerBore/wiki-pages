@@ -17,20 +17,10 @@ and table_schema not like 'information_schema' and table_schema not like 'perfor
 
 ## Resources
 
-[EN - Blackhat Europe 2009 - Advanced SQL injection whitepaper.pdf]("/assets/EN - Blackhat Europe 2009 - Advanced SQL injection whitepaper.pdf")
+[EN - Blackhat Europe 2009 - Advanced SQL injection whitepaper.pdf]({{ assets.path }}/EN - Blackhat Europe 2009 - Advanced SQL injection whitepaper.pdf)
 
-[EN - Blackhat US 2006 _ SQL Injections by truncation.pdf]("/assets/EN - Blackhat US 2006 _ SQL Injections by truncation.pdf")
+[EN - Blackhat US 2006 _ SQL Injections by truncation.pdf]({{ assets.path }}/EN - Blackhat US 2006 _ SQL Injections by truncation.pdf)
 
-[EN - FAST blind SQL Injection.pdf]("/assets/EN - FAST blind SQL Injection.pdf")
+[EN - FAST blind SQL Injection.pdf]({{ assets.path }}/EN - FAST blind SQL Injection.pdf)
 
-[EN - SQL injection in insert, update and delete statements.pdf]("/assets/EN - SQL injection in insert, update and delete statements.pdf")
-
----
-
-{{ :it:infosec:en_-_blackhat_europe_2009_-_advanced_sql_injection_whitepaper.pdf |}}
-
-{{ :it:infosec:en_-_blackhat_us_2006_sql_injections_by_truncation.pdf |}}
-
-{{ :it:infosec:en_-_fast_blind_sql_injection.pdf |}}
-
-{{ :it:infosec:en_-_sql_injection_in_insert_update_and_delete_statements.pdf |}}
+[EN - SQL injection in insert, update and delete statements.pdf]({{ assets.path }}/EN - SQL injection in insert, update and delete statements.pdf)

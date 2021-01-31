@@ -21,10 +21,15 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/NeodymiumFerBore
 
+  # Define where assets are stored. {{ assets.path }} will then be used
+  assets:
+    path: https://ndfeb.fr/wiki/assets
+
 plugins:
   - search
   - awesome-pages
   - git-revision-date
+  - macros # show predefined variables: {{ macros_info() }}
 
 # https://squidfunk.github.io/mkdocs-material/reference/admonitions/
 markdown_extensions:
