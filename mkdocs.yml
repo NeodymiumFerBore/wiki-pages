@@ -6,7 +6,6 @@ edit_uri: edit/master/docs/
 theme:
   name: material
   font: false # disable loading fonts from google for data privacy reason
-  nav: dark
   icon:
     repo: fontawesome/brands/github-alt
   palette:
