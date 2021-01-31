@@ -1,6 +1,6 @@
 # QEMU/KVM Windows virtualization for gaming, fun and profit
 
-# UNDER CONSTRUCTION
+## UNDER CONSTRUCTION
 
 !!! warning "Attention"
     At the moment, this article is just a trash dump of my notes during the setup.
@@ -155,7 +155,7 @@ root@mint# usermod -aG libvirt ndfeb
 root@mint# usermod -aG libvirt-qemu ndfeb
 ```
 
-!!! note "/etc/libvirt/qemu/win10.xml"
+!!! note "`/etc/libvirt/qemu/win10.xml`"
     ```conf
     (...)
         <input type='mouse' bus='virtio'>
@@ -188,7 +188,7 @@ root@mint# usermod -aG libvirt-qemu ndfeb
 
 ---
 
-!!! note "/etc/libvirt/qemu.conf"
+!!! note "`/etc/libvirt/qemu.conf`"
     ```conf
     user = "ndfeb"
     group = "kvm"
@@ -238,15 +238,13 @@ From [passthroughpo.st](https://passthroughpo.st/using-evdev-passthrough-seamles
 !!! quote "From [passthroughpo.st](https://passthroughpo.st/using-evdev-passthrough-seamless-vm-input/)"
     You're probably running into an Apparmor (if you're on a Debian/Ubuntu based distro) or SELinux (if you're on a CentOS/Fedora based distro) problem. In case of AppArmor, /etc/apparmor.d/abstractions/libvirt-qemu contains the file to add additional permissions such as /dev/input and /dev/shm (needed for LookingGlass) which is parsed on VM startup. You'll want to add the line /dev/input/* rw, and then restart AppArmor (or reboot).
 
-In case of SELinux, you can refer to [this document](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-fixing_problems-allowing_access_audit2allow) on how to whitelist your input devices.
+    In case of SELinux, you can refer to [this document](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/security-enhanced_linux/sect-security-enhanced_linux-fixing_problems-allowing_access_audit2allow) on how to whitelist your input devices.
 
 ---
 
 ### Sound passthrough
 
-`01_old_qemu_conf_sound.txt` (`/mnt/etc/libvirt/qemu/win10.xml`)
-
-!!!
+!!! note "`01_old_qemu_conf_sound.txt` (`/mnt/etc/libvirt/qemu/win10.xml`)"
 ```xml
   <qemu:commandline>
     <qemu:arg value='-cpu'/>
