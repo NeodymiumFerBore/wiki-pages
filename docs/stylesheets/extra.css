@@ -4,6 +4,7 @@
 }
 body, input {
   font-family: "<font>", -apple-system, BlinkMacSystemFont, "Open Sans", Helvetica, Arial, sans-serif;
+  color: #CCC;
 }
 pre, code, kbd {
   font-family: "<font>", SFMono-Regular, Consolas, Menlo, monospace;
