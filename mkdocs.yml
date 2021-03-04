@@ -24,7 +24,7 @@ extra:
 
   # Define where assets are stored. {{ assets.path }} will then be used
   assets:
-    path: https://ndfeb.fr/wiki/assets
+    path: https://ndfeb.fr/wiki/files
 
 extra_css:
   - stylesheets/extra.css
