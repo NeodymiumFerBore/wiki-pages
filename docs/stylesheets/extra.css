@@ -9,3 +9,6 @@ body, input {
 pre, code, kbd {
   font-family: "<font>", SFMono-Regular, Consolas, Menlo, monospace;
 }
+code {
+  white-space: pre-wrap !important;
+}
