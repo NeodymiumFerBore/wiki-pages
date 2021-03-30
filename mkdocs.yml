@@ -1,6 +1,6 @@
 site_name: NdFeB Wiki
 docs_dir: docs
-site_url: https://ndfeb.fr/wiki
+site_url: https://ndfeb.fr/kb
 repo_url: https://github.com/NeodymiumFerBore/wiki-pages
 edit_uri: edit/master/docs/
 theme:
@@ -24,7 +24,7 @@ extra:
 
   # Define where assets are stored. {{ assets.path }} will then be used
   assets:
-    path: https://ndfeb.fr/wiki/files
+    path: https://ndfeb.fr/kb/files
 
 extra_css:
   - stylesheets/extra.css
