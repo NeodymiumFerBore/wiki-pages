@@ -1,5 +1,7 @@
 wheel
-mkdocs
+# mkdocs 7.1.0 breaks a plugin (which one?) that uses Jinja2
+# TODO: Find best suitable version, or check for plugin updates
+mkdocs==7.0.2
 mkdocs-awesome-pages-plugin
 mkdocs-material-extensions
 mkdocs-git-revision-date-plugin
