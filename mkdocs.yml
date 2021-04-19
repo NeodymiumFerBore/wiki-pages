@@ -15,6 +15,22 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky # Insiders only, but maybe one day...
+copyright: |
+  <div style="display:inline-flex; flex-direction:row; gap:5px; align-items:center;">
+    <div>
+    <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en>
+      <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC Attribution-Noncommercial-Share Alike 4.0 International License" align="center">
+    </a>
+    </div>
+    <div>
+      <p style="font-size:.56rem; color:var(--md-footer-fg-color--lighter);">
+        Except where otherwise noted, content on this wiki <br> is licensed under
+        <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en style="color:var(--md-footer-fg-color--light);" target="_blank" rel="noreferrer noopener">
+          CC-BY-NC-SA 4.0 License
+        </a>
+      </p>
+    </div>
+  </div>
 extra:
   social:
     - icon: fontawesome/brands/gitlab
