@@ -1,4 +1,3 @@
-wheel
 # mkdocs-material 7.1.0 breaks a plugin (which one?) that uses Jinja2
 # TODO: Find best suitable version, or check for plugin updates
 mkdocs
