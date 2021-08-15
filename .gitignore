@@ -1,4 +1,4 @@
 # Ignore binary ressources (pdf, images, etc.)
-assets/
+/docs/assets/tux_saphielle.png
+/site/
 img/
-site/

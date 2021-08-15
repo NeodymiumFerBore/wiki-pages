@@ -1,11 +1,12 @@
-site_name: NdFeB KB
+site_name: NdFeB - Docs
 docs_dir: docs
-site_url: https://ndfeb.fr/kb
+site_url: https://www.ndfeb.fr/docs/
 repo_url: https://github.com/NeodymiumFerBore/wiki-pages
 edit_uri: edit/master/docs/
 theme:
   name: material
   font: false # disable loading fonts from google for data privacy reason
+  logo: assets/tux_saphielle_logo.png
   icon:
     repo: fontawesome/brands/github-alt
   palette:
@@ -18,14 +19,19 @@ theme:
 copyright: |
   <div style="display:inline-flex; flex-direction:row; gap:5px; align-items:center;">
     <div>
-    <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en>
-      <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC Attribution-Noncommercial-Share Alike 4.0 International License" align="center">
-    </a>
+      <a href="https://www.deviantart.com/saphielle" title="DeviantArt - Saphielle" aria-label="DeviantArt - Saphielle" target="_blank" rel="noopener noreferrer">
+        <img src="/docs/assets/tux_saphielle.png" alt="https://www.deviantart.com/saphielle" width="56px" height="56px">
+      </a>
+    </div>
+    <div>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener noreferrer">
+        <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" alt="CC Attribution-Noncommercial-Share Alike 4.0 International License" align="center">
+      </a>
     </div>
     <div>
       <p style="font-size:.56rem; color:var(--md-footer-fg-color--lighter);">
         Except where otherwise noted, content on this wiki <br> is licensed under
-        <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en style="color:var(--md-footer-fg-color--light);" target="_blank" rel="noreferrer noopener">
+        <a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en style="color:var(--md-footer-fg-color--light);" target="_blank" rel="noopener noreferrer">
           CC-BY-NC-SA 4.0 License
         </a>
       </p>
@@ -40,7 +46,7 @@ extra:
 
   # Define where assets are stored. {{ assets.path }} will then be used
   assets:
-    path: https://ndfeb.fr/kb/files
+    path: https://www.ndfeb.fr/docs/files
 
 extra_css:
   - stylesheets/extra.css
