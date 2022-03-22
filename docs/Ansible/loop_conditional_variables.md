@@ -17,11 +17,11 @@
 {% endraw %}
 ```
 
-> Or a bit more clear
+> Or
 
 ```yaml
 {% raw %}
-- name: installation d'Apache
+- name: Install package regarding the host
   vars:
     - os: "{{ ansible_facts.os_family }}"
   ansible.builtin.package:
