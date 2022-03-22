@@ -3,6 +3,7 @@
 > Install httpd on RedHat flavors, install apache2 on Debian flavors
 
 ```yaml
+{% raw %}
 - name: Install package regarding the host
   ansible.builtin.package:
     name: "{{ pkg.name }}"
@@ -13,11 +14,13 @@
     - { name: apache2, when: "{{ ansible_facts.os_family == 'Debian' }}" }
   loop_control:
     loop_var: pkg
+{% endraw %}
 ```
 
 > Or a bit more clear
 
 ```yaml
+{% raw %}
 - name: installation d'Apache
   vars:
     - os: "{{ ansible_facts.os_family }}"
@@ -30,6 +33,7 @@
     - { name: apache2, when: "{{ os == 'Debian' }}" }
   loop_control:
     loop_var: pkg
+{% endraw %}
 ```
 
 > Output with 2 RHEL hosts
