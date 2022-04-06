@@ -89,7 +89,7 @@ The following configuration re-use our previous example: knock chain is `1234/tc
 
 If you find any error in this configuration, please open an issue on [my GitHub]({{ config.repo_url }})!
 
-??? abstract "Click to reveal the iptables port kocking configuration with comments"
+??? abstract "Click to reveal the iptables port knocking configuration with comments"
 
     ```sh
     *filter
@@ -225,7 +225,7 @@ If you find any error in this configuration, please open an issue on [my GitHub]
     COMMIT
     ```
 
-??? abstract "Click to reveal the iptables port kocking configuration without comments"
+??? abstract "Click to reveal the iptables port knocking configuration without comments"
 
     ```sh
     *filter
@@ -265,9 +265,9 @@ If you find any error in this configuration, please open an issue on [my GitHub]
     COMMIT
     ```
 
-Some of the parameters set in these extracts are set automatically by iptables (and you find them in `iptables-saves` output). Here is an iptables script that does exactly the same thing than the previous files, but using the least required parameters. Be careful, executing it will reset all your iptables `INPUT`/`OUTPUT` filters (but will not end active connections)
+Some of the parameters set in these extracts are set automatically by iptables (and you find them in `iptables-saves` output). Here is an iptables script that does exactly the same thing than the previous files, but using the least required parameters. To test it, start from an empty filter table.
 
-??? abstract "Click to reveal the iptables port kocking script"
+??? abstract "Click to reveal the iptables port knocking script"
 
     ```sh
     # Consider that you start from a fresh, default, empty iptables
