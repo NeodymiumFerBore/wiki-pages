@@ -93,7 +93,7 @@ ssh -l "$user" "$server" "sudo tcpdump -i any -U -w - 'not (host $local_ip and t
 
 ---
 
-## Stop capturing and save the capture
+## Stop and save the capture
 
 Clicking the "Stop capturing" button on Wireshark will work as normal, but keep in mind that your `tcpdump` command will still be
 running on your remote machine. This may have a performance impact.
