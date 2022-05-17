@@ -101,4 +101,4 @@ running on your remote machine. This may have a performance impact.
 The best way to stop capturing is to interrupt your ssh connection (++ctrl+c++). The `tcpdump` command will be killed
 and Wireshark will just act as if you clicked on the "Stop capturing" button, because its input interface does not exist anymore.
 
-You can save the capture locally as a pcap file, just like you would do if you were capturing from a local interface. Magic!
+You can save the capture locally as a pcap file, just like if you were capturing from a local interface. Magic!
