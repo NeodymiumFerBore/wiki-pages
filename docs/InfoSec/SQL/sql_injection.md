@@ -13,6 +13,8 @@ and table_schema not like 'information_schema' and table_schema not like 'perfor
 
 [pentestmonkey - cheat sheet](http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet)
 
+[portswigger - SQLi common filter bypass](https://portswigger.net/support/sql-injection-bypassing-common-filters)
+
 ---
 
 ## Resources
